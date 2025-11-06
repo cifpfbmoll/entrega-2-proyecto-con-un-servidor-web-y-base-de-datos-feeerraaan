@@ -1,61 +1,80 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/4rO4igdX)
-# Proyecto con un servidor web y un servidor de base de datos
+# Proyecto con un servidor web y un servidor de base de datos dockerizado
 
-## Ejercicios para repasar
+### 1️⃣ Descargar las imágenes necesarias
+![Captura 1](./images/1.png)
 
-1. Descarga las siguientes imágenes: `ubuntu:24.04`, `httpd`, `tomcat:9.0.39-jdk11`, `jenkins/jenkins:lts`, `php:7.4-apache`.
-2. Muestras las imágenes que tienes descargadas.
-3. Crea un contenedor demonio con la imagen `php:7.4-apache`.
-4. Comprueba el tamaño del contenedor en el disco duro.
-5. Con la instrucción `docker cp` podemos copiar ficheros a o desde un contenedor. Puedes encontrar información es esta [página](https://docs.docker.com/engine/reference/commandline/cp/). 
-    Crea un fichero en tu ordenador, con el siguiente contenido:
+---
 
-    ```php
-    <?php
-    echo phpinfo();
-    ?>
-    ```
-    Copia un fichero `info.php` al directorio `/var/www/html` del contenedor con `docker cp`.
-6. Vuelve a comprobar el espacio ocupado por el contenedor.
-7. Accede al fichero `info.php` desde un navegador web.
+### 2️⃣ Mostrar las imágenes descargadas
+![Captura 2](./images/2.png)
 
-## Descripción de la tarea
+---
 
-### Servidor web
+### 3️⃣ Crear un contenedor demonio con la imagen php:7.4-apache
+![Captura 3](./images/3.png)
 
-* Arranca un contenedor que ejecute una instancia de la imagen `php:7.4-apache`, que se llame `web` y que sea accesible desde tu equipo en el puerto 8000.
-* Colocar en el directorio raíz del servicio web (`/var/www/html`) de dicho contenedor un fichero llamado `index.html` con el siguiente contenido:
+---
 
-```html
-<h1>Hola soy XXXXXXXXXXXXXXX de IFC33X</h1>
-```
-Deberás sustituir XXXXXXXXXXX por tu nombre y tus apellidos.
+### 4️⃣ Comprobar el tamaño del contenedor en el disco duro
+![Captura 4](./images/4.png)
 
-* Colocar en ese mismo directorio raíz un archivo llamado `index.php` con el siguiente contenido:
-```php
-<?php echo phpinfo(); ?>
-```
-* Para crear los ficheros tienes tres alternativas:
-    * Ejecutando bash de forma interactiva en el contenedor y creando los ficheros.
-    * Ejecutando un comando `echo` en el contenedor con `docker exec`.
-    * Usando `docker cp` como hemos visto en el ejercicio 5.
+---
 
-### Servidor de base de datos
+### 5️⃣ Copiar un fichero info.php al contenedor
+![Captura 5](./images/5.png)
 
-* Arrancar un contenedor que se llame `bbdd` y que ejecute una instancia de la imagen mariadb para que sea accesible desde el puerto 3336.
-* Antes de arrancarlo visitar la página del contenedor en [Docker Hub](https://hub.docker.com/_/mariadb) y establecer las variables de entorno necesarias para que:
+---
 
-    * La contraseña de root sea `root`.
-    * Crear una base de datos automáticamente al arrancar que se llame `prueba`.
-    * Crear el usuario `invitado` con las contraseña `invitado`.
+### 6️⃣ Volver a comprobar el espacio ocupado
+![Captura 6](./images/6.png)
 
-# Entregables
+---
 
-Deberás entregar en este repositorio los siguientes pantallazos documentados en markdown (sin abuso de las IAs):
+### 7️⃣ Acceder al fichero info.php desde un navegador
+![Captura 7](./images/7.png)
 
-* Pantallazo que desde el navegador muestre el fichero `index.html`.
-* Pantallazo que desde el navegador muestre el fichero `index.php`.
-* Pantallazo donde se vea el tamaño del contenedor `web` después de crear los dos ficheros.
-* Pantallazo donde desde un cliente de base de datos (instalado en tu ordenador) se pueda observar que hemos podido conectarnos al servidor de base de datos con el usuario creado y que se ha creado la base de datos prueba (`show databases`). El acceso se debe realizar desde el ordenador que tenéis instalado docker, no hay que acceder desde dentro del contenedor, es decir, no usar `docker exec`.
-* Pantallazo donde se comprueba que no se puede borrar la imagen `mariadb` mientras el contenedor `bbdd` está creado.
+---
+
+## 🌐 PARTE 2 — Servidor web
+
+### 1️⃣ Crear el contenedor "web"
+![Captura 8](./images/8.png)
+
+---
+
+### 2️⃣ Crear los ficheros dentro del contenedor
+![Captura 9](./images/9.png)
+
+---
+
+### 3️⃣ Ver index.html en el navegador
+![Captura 10](./images/10.png)
+
+---
+
+### 4️⃣ Ver index.php en el navegador
+![Captura 11](./images/11.png)
+
+---
+
+### 5️⃣ Ver el tamaño del contenedor después
+![Captura 12](./images/12.png)
+
+---
+
+## 🗃️ PARTE 3 — Servidor de base de datos
+
+### 1️⃣ Crear el contenedor de MariaDB
+![Captura 13](./images/13.png)
+
+---
+
+### 2️⃣ Conectarse desde un cliente externo
+![Captura 14](./images/14.png)
+
+---
+
+### 3️⃣ Comprobar que no se puede borrar la imagen
+![Captura 15](./images/15.png)
 
